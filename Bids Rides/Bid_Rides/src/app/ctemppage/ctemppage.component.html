@@ -1,0 +1,113 @@
+<div class="details-container">
+  <div class="customer-details">
+    <h2>Customer Details</h2>
+    <form [formGroup]="customerForm" (ngSubmit)="save()" *ngIf="editMode">
+      <div class="detail-row">
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" formControlName="firstname" required>
+      </div>
+
+      <div class="detail-row">
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" formControlName="lastname" required>
+      </div>
+
+      <div class="detail-row">
+        <label for="phone_number">Phone Number:</label>
+        <input type="tel" id="phone_number" formControlName="phone_number" required>
+      </div>
+
+     <div class="detail-row">
+  <label for="pickup_location">Location:</label>
+  <input type="text" id="pickup_location" formControlName="pickup_location" required>
+  
+</div><div class="validation-message">{{ addressValidation }}</div>
+
+<div class="detail-row">
+  <label for="drop_off_location">Destination:</label>
+  <input type="text" id="drop_off_location" formControlName="drop_off_location" required>
+  
+</div>
+<div class="validation-message">{{ dropOffLocationValidation }}</div>
+      <div class="detail-row">
+        <label for="time_of_pickup">Pickup Time:</label>
+        <input type="datetime-local" id="time_of_pickup" formControlName="time_of_pickup" required>
+      </div>
+
+      <div class="actions">
+        <button type="submit">Proceed</button>
+        <button type="button" (click)="cancel()">Cancel</button>
+      </div>
+    </form>
+
+    <div *ngIf="!editMode">
+      <div class="container">
+        <div class="details">
+          <div class="detail-row">
+          <label for="firstname">First Name:</label>
+          <span>{{ customerForm.get('firstname')?.value }}</span>
+        </div><div class="detail-row">
+
+          <label for="lastname">Last Name:</label>
+          <span>{{ customerForm.get('lastname')?.value }}</span>
+        </div><div class="detail-row">
+
+          <label for="phone_number">Phone Number:</label>
+          <span>{{ customerForm.get('phone_number')?.value }}</span>
+        </div><div class="detail-row">
+
+          <label for="pickup_location">Pickup Location:</label>
+          <span>{{ customerForm.get('pickup_location')?.value }}</span>
+        </div><div class="detail-row">
+
+          <label for="drop_off_location">Drop-off Location:</label>
+          <span>{{ customerForm.get('drop_off_location')?.value }}</span>
+</div><div class="detail-row">
+          <label for="time_of_pickup">Time of Pickup:</label>
+          <span>{{ customerForm.get('time_of_pickup')?.value }}</span>
+</div><div class="detail-row">
+          <label>Duration:</label>
+          <span>{{ duration }}</span>
+        </div><div class="detail-row">
+
+          <label>Distance:</label>
+          <span>{{ distance }}</span>
+        </div>
+        </div>
+ <div class="actions">
+        <button (click)="edit()" type="button">Edit</button>
+      </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="vendor-details">
+    <h2>Vendor Details</h2>
+    <form [formGroup]="vendorsdata">
+      <div *ngFor="let vendor of vendors; let i = index" class="vendor-detail-row">
+        <div class="detail-row">
+          <label [for]="'phone_number' + i">Phone Number:</label>
+          <input type="text" [id]="'phone_number' +  i" [formControlName]="'phone_number' + i" [value]="vendor.v_phone_number" readonly>
+        </div>
+        <div class="detail-row">
+          <label [for]="'bidValue' + i">Bid Value:</label>
+          <input type="text" [id]="'bidValue' + i" [formControlName]="'bidValue' + i" [value]="vendor.bid_value" readonly>
+        </div>
+        <div class="detail-row">
+          <label [for]="'status' + i">Status:</label>
+          <input type="text" [id]="'status' + i" [formControlName]="'status' + i" [value]="vendor.status" readonly>
+        </div>
+
+        <div class="actions">
+          <button type="button" (click)="acceptBid(vendor.c_Id, vendor.v_id)">Accept</button>
+          <button type="button" (click)="rejectBid(vendor.c_Id, vendor.v_id)">Reject</button>
+        </div>
+      </div>
+      </form>
+    </div>
+  
+</div>
+
+

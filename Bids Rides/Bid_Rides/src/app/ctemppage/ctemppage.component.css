@@ -1,0 +1,80 @@
+.customer-details {
+  margin-bottom: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.customer-details h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+
+.detail-row label {
+  flex-basis: 30%;
+  font-weight: bold;
+}
+
+.detail-row input[type="text"],
+.detail-row input[type="tel"],
+.detail-row input[type="datetime-local"] {
+  flex-basis: 70%;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.actions button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.actions button:hover {
+  background-color: #0056b3;
+}
+
+.details-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.customer-details,
+.vendor-details {
+  flex-basis: 48%;
+}
+
+.vendor-details .detail-row {
+  margin-bottom: 15px;
+}
+
+.vendor-details .actions {
+  margin-top: 0;
+}
+
+.vendor-details .actions button {
+  margin-left: 0;
+}
+
+.vendor-details h2 {
+  margin-bottom: 10px;
+}

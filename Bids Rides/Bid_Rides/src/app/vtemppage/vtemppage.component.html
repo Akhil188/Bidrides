@@ -1,0 +1,97 @@
+<div class="details-container">
+
+<div *ngIf="!editMode">
+  <form [formGroup]="vendor1Form">
+    <div class="actions">
+  <button (click)="edit()" type="button">Edit Details</button>
+</div>
+    <div class="customer-details" *ngFor="let customer of customers; let i = index">
+      <div *ngIf="parseDistance(vdistance[i]) <= 50; else noUserInRange">
+        <div *ngIf="status[i] == 'accepted'">
+          <div class="form-group">
+            <label>Customer Phone Number</label>
+            <input type="text" [placeholder]="c_phone[i]" [value]="c_phone[i]" readonly>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pickupLocation{{customer.id}}">Pickup Location</label>
+          <input type="text" id="pickupLocation{{customer.id}}" [formControlName]="'pickupLocation' + i" [value]="customer.pickup_location" readonly>
+        </div>
+        <div class="form-group">
+          <label for="dropOffLocation{{customer.id}}">Drop-off Location</label>
+          <input type="text" id="dropOffLocation{{customer.id}}" [formControlName]="'dropOffLocation' + i" [value]="customer.drop_off_location" readonly>
+        </div>
+        <div class="form-group">
+          <label for="time{{customer.id}}">Time</label>
+          <input type="text" id="time{{customer.id}}" [formControlName]="'time' + i" [value]="customer.time_of_pickup" readonly>
+        </div>
+        <div class="form-group">
+          <label>Duration</label>
+          <input type="text" [placeholder]="duration[i]" [value]="duration[i]" readonly>
+        </div>
+        <div class="form-group">
+          <label>Distance</label>
+          <input type="text" [placeholder]="distance[i]" [value]="distance[i]" readonly>
+        </div>
+        <div class="form-group">
+          <label>Bid Value</label>
+          <input type="text" [placeholder]="bidValues[i]" [formControlName]="'bidValue' + i" [value]="bidValues[i]">
+        </div>
+        <div class="form-group">
+          <label>Status</label>
+          <input type="text" [placeholder]="status[i]" [value]="status[i]" readonly>
+        </div>
+        <div *ngIf="successMessage" class="success-message">
+          {{ successMessage }}
+        </div>
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+        <div class="actions">
+        <button (click)="handleClick(i)" type="button" >Submit</button>
+      </div>
+      </div>
+    </div>
+  </form>
+  
+</div>
+
+<form [formGroup]="vendorForm" (ngSubmit)="save()" *ngIf="editMode">
+  <div class="customer-details">
+    <h2>Vendor Details</h2>
+    <div class="detail-row">
+      <label for="firstname">First Name:</label>
+      <input type="text" id="firstname" formControlName="first_name" required>
+    </div>
+    <div class="detail-row">
+      <label for="lastname">Last Name:</label>
+      <input type="text" id="lastname" formControlName="last_name" required>
+    </div>
+    <div class="detail-row">
+           <label for="phone_number">Phone Number:</label>
+      <input type="tel" id="phone_number" formControlName="phone_number" required>
+    </div>
+
+    <div class="detail-row">
+      <label for="driving_license_number">Driving Licence Number:</label>
+      <input type="text" id="driving_license_number" formControlName="driving_license_number" required>
+    </div>
+
+    <div class="detail-row">
+      <label for="location">Location:</label>
+      <input type="text" id="location" formControlName="location" required>
+    </div>
+    <div>{{ addressValidation }}</div>
+
+    <div class="actions">
+      <button type="submit">Proceed</button>
+      <button type="button" (click)="cancel()">Cancel</button>
+    </div>
+  </div>
+</form>
+</div>
+
+<ng-template #noUserInRange>
+  <p>No user is within your range of 50km.</p>
+</ng-template>
+

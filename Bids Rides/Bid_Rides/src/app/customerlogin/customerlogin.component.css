@@ -1,0 +1,67 @@
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.customer-form .form-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.customer-form .form-group {
+  flex-basis: 48%;
+}
+
+.customer-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.customer-form input[type="text"],
+.customer-form input[type="tel"],
+.customer-form input[type="datetime-local"],
+.customer-form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.customer-form .error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.customer-form .validation-message {
+  color: orange;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.customer-form button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.customer-form button[type="submit"]:hover {
+  background-color: #0056b3;
+}

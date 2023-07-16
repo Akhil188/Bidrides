@@ -1,0 +1,51 @@
+<div class="vendor-signup-container">
+  <h2>Vendor Signup</h2>
+  <form [formGroup]="vendorForm" (submit)="onSubmit()" class="vendor-form">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" formControlName="first_name">
+        <div *ngIf="formControls['first_name'].touched && formControls['first_name'].errors?.['required']" class="error-message">
+          Vendor Name is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" formControlName="last_name">
+        <div *ngIf="formControls['last_name'].touched && formControls['last_name'].errors?.['required']" class="error-message">
+          Vendor Name is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="phone_number">Phone Number:</label>
+        <input type="tel" id="phone_number" formControlName="phone_number">
+        <div *ngIf="formControls['phone_number'].touched && formControls['phone_number'].errors?.['required']" class="error-message">
+          Phone number is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="location">Location:</label>
+        <input type="text" id="location" formControlName="location">
+        <div *ngIf="formControls['location'].touched && formControls['location'].errors?.['required']" class="error-message">
+          Location is required.
+        </div>
+        <div>{{ addressValidation }}</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="driving_license_number">Driving License Number:</label>
+      <input type="text" id="driving_license_number" formControlName="driving_license_number">
+      <div *ngIf="formControls['driving_license_number'].touched && formControls['driving_license_number'].errors?.['required']" class="error-message">
+        License number is required.
+      </div>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>

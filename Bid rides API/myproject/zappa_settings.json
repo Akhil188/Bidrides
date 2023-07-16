@@ -1,0 +1,19 @@
+{
+  "dev": {
+    "aws_region": "us-east-1",
+    "django_settings": "myproject.settings",
+    "profile_name": "default",
+    "project_name": "myproject",
+    "runtime": "python3.8",
+    "s3_bucket": "zappa-bfit2r579",
+    "include": [
+      "wsgi.py",
+      "myproject/",
+      "env/",
+      "requirements.txt"
+    ]
+  }
+}
+
+
+ 

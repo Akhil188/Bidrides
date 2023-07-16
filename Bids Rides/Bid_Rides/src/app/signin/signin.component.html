@@ -1,0 +1,13 @@
+<div class="signup-container">
+  <h2>Signup</h2>
+  <form [formGroup]="loginForm" (submit)="onSubmit()" class="signup-form">
+    <div class="form-group">
+      <label for="userType">Select user type:</label>
+      <select id="userType" name="userType" formControlName="userType">
+        <option value="customer">Customer</option>
+        <option value="vendor">Vendor</option>
+      </select>
+    </div>
+    <button type="submit">Signup</button>
+  </form>
+</div>

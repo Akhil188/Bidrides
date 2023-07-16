@@ -1,0 +1,69 @@
+<div class="login-container">
+  <h2>Customer Signup</h2>
+ 
+
+  <form [formGroup]="customerForm" (submit)="onSubmit()" class="customer-form">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" formControlName="firstname" required>
+        <div *ngIf="customerForm.controls['firstname'].touched && customerForm.controls['firstname'].errors?.['required']" class="error-message">
+          First Name is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" formControlName="lastname" required>
+        <div *ngIf="customerForm.controls['lastname'].touched && customerForm.controls['lastname'].errors?.['required']" class="error-message">
+          Last Name is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="phone_number">Phone Number:</label>
+        <input type="tel" id="phone_number" formControlName="phone_number" required>
+        <div *ngIf="customerForm.controls['phone_number'].touched && customerForm.controls['phone_number'].errors?.['required']" class="error-message">
+          Phone number is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="pickup_location">Location:</label>
+        <input type="text" id="pickup_location" formControlName="pickup_location" required>
+        <div *ngIf="customerForm.controls['pickup_location'].touched && customerForm.controls['pickup_location'].errors?.['required']" class="error-message">
+          Location is required.
+        </div>
+        <div *ngIf="addressValidation" class="validation-message">{{ addressValidation }}</div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="drop_off_location">Destination:</label>
+        <input type="text" id="drop_off_location" formControlName="drop_off_location" required>
+        <div *ngIf="customerForm.controls['drop_off_location'].touched && customerForm.controls['drop_off_location'].errors?.['required']" class="error-message">
+          Destination is required.
+        </div>
+        <div *ngIf="dropOffLocationValidation" class="validation-message">{{ dropOffLocationValidation }}</div>
+      </div>
+
+      <div class="form-group">
+        <label for="time_of_pickup">Pickup Time:</label>
+        <input type="datetime-local" id="time_of_pickup" formControlName="time_of_pickup" required>
+        <div *ngIf="customerForm.controls['time_of_pickup'].touched && customerForm.controls['time_of_pickup'].errors?.['required']" class="error-message">
+          Pickup Time is required.
+        </div>
+      </div>
+    </div>
+
+    <button type="submit">Submit</button>
+
+  </form>
+</div>
+
+
+
+

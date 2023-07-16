@@ -1,0 +1,34 @@
+<div class="signup-container">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+    <div class="form-group">
+      <label for="role">Role:</label>
+      <select formControlName="role" id="role">
+        <option value="customer">Customer</option>
+        <option value="vendor">Vendor</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input type="text" formControlName="lastName" id="lastName">
+      <div *ngIf="loginForm.controls['lastName'].invalid && loginForm.controls['lastName'].touched" class="error-message">
+        Last name is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number:</label>
+      <input type="text" formControlName="phone" id="phone">
+      <div *ngIf="loginForm.controls['phone'].invalid && loginForm.controls['phone'].touched" class="error-message">
+        Phone number is required.
+      </div>
+    </div>
+    <button type="submit">Submit</button>
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
+    <div *ngIf="loginError" class="error-message">
+      {{ loginError }}
+    </div>
+  </form>
+</div>
+
