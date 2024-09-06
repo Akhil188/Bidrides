@@ -106,7 +106,7 @@ Follow these steps to set up the project locally:
 
 The project is organized as follows:
 
-BidRides/ ├── API/ │ └── myproject/ # Backend Django project │ ├── settings.py # Project settings │ ├── urls.py # Backend API routes │ └── ... └── Bids_Rides/ # Frontend Angular project ├── src/ │ ├── app/ # Angular components, services, etc. │ ├── assets/ # Static assets │ └── environments/ # Angular environment files └── ...
+BidRides/ ├── API/ │ └── myproject/ # Backend Django project │ ├── settings.py # Project settings │ ├── urls.py # Backend API routes │ └── ... # Other Django project files └── Bids_Rides/ # Frontend Angular project ├── src/ │ ├── app/ # Angular components, services, etc. │ ├── assets/ # Static assets │ └── environments/ # Angular environment files └── ... # Other Angular
 
 
 ## API Endpoints
@@ -143,7 +143,3 @@ If you'd like to contribute, please fork the repository and use a feature branch
     git push origin feature/AmazingFeature
     ```
 5. Open a pull request.
-
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
